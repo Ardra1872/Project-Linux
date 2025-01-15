@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="learnbody">
+   
+
+  </div>
+  
+    <div id="vertical-oval">
+      
+        <div id="rectangle-box">
+
+        <nav class="sidebar">
+            <ul >
+                <li ><a href="#find">find</a></li>
+                <li ><a href="#tar">tar</a></li>
+                <li ><a href="#gzip">gzip</a></li>
+                <li ><a href="#gunzip">gunzip</a></li>
+                 <li ><a href="#zip">zip</a></li>
+                <li><a href="#chmod">chmod</a></li>
+                <li ><a href="#chown">chown</a></li>
+                <li ><a href="#chgrp">chgrp</a></li>
+                <li ><a href="#ps">ps</a></li>
+                <li><a href="index.html"><img src="home.png" width="35px"></a></li>
+              </ul>
+           
+        </nav>
+    </div>
+    </div>
+    <br>
+    
+    <section id="intro" >
+      <center>Welcome to Linux Command-Line Essentials!</center><br>
+
+      This guide covers key Linux file operations and compression commands like find, tar, gzip, gunzip, and zip, essential for managing files and directories efficiently. You'll also learn about file permissions with chmod, chown, and chgrp, plus process monitoring with ps. Mastering these commands will boost your confidence in navigating and managing files in Linux. Let's dive in!
+    </section>
+    <div id="content">
+
+        <section id="find">
+            <h2>find Command</h2>
+            <p>The `find` command is used to search for files and directories within a specified location in the filesystem. It can be used to search based on various criteria like name, type, permissions, and modification time.</p><br>
+            <ul>
+                <li>Root User: The root user can search the entire filesystem, including restricted directories.</li>
+                <li>Regular User: Regular users are typically limited to searching directories they have access to, but can use the `find` command with specific parameters to refine their searches.</li><br>
+            </ul>
+            <center><h3>find Syntax</h3>
+            <img src="find.png"></center>
+        
+            <table class="options-table">
+                <tr>
+                    <th>Option</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>-name</td>
+                    <td>Search for files by name. You can use wildcards (`*`) to match patterns.</td>
+                </tr>
+                <tr>
+                    <td>-type</td>
+                    <td>Search for files of a specific type. Common types include `f` for regular files, `d` for directories, and `l` for symbolic links.</td>
+                </tr>
+                <tr>
+                    <td>-size</td>
+                    <td>Search for files by their size. You can specify the size in bytes, kilobytes (k), megabytes (M), etc.</td>
+                </tr>
+                <tr>
+                    <td>-mtime</td>
+                    <td>Search for files modified a certain number of days ago. You can use `+` (more than), `-` (less than), or exact numbers (e.g., `-mtime -7` for files modified in the last 7 days).</td>
+                </tr>
+                <tr>
+                    <td>-user</td>
+                    <td>Search for files owned by a specific user.</td>
+                </tr>
+                <tr>
+                    <td>-group</td>
+                    <td>Search for files belonging to a specific group.</td>
+                </tr>
+                <tr>
+                    <td>-exec</td>
+                    <td>Execute a command on each file found. For example, `-exec rm {} \;` will delete each file found.</td>
+                </tr>
+                <tr>
+                    <td>-maxdepth</td>
+                    <td>Limit the search to a certain number of directory levels. For example, `-maxdepth 2` will limit the search to two levels of directories.</td>
+                </tr>
+            </table>
+            <center><h3>Example</h3>
+            <img src="find example.png"></center>
+        </section>
+        
+
+
+
+      <section id ="tar">
+        <h2>tar Command</h2>
+        <p>The Linux ‘tar’ stands for tape archive, which is used to create Archive and extract the Archive files. tar command in Linux is one of the important commands that provides archiving functionality in Linux. We can use the Linux tar command to create compressed or uncompressed Archive files and also maintain and modify them. <br>
+           
+          <center><h3>tar Command Syntax</h3>
+           <br>
+
+           <img src="tar.png" id="image"></center>
+           <ul>
+           <li>tar: The command itself.</li>
+           <li>[options]: Optional flags or settings that modify the behavior of the tar command.</li> 
+            <li>[archive-file]: The name of the archive file you are creating or working with.</li>
+            <li>[file or directory to be archived]: The file or directory you want to include in the archive.</li>
+          </ul>
+
+          <table class="options-table">
+            <thead>
+                <tr>
+                    <th>Options</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>-c</td>
+                    <td>Creates an archive by bundling files and directories together.</td>
+                </tr>
+                <tr>
+                    <td>-x</td>
+                    <td>Extracts files and directories from an existing archive.</td>
+                </tr>
+                <tr>
+                    <td>-f</td>
+                    <td>Specifies the filename of the archive to be created or extracted.</td>
+                </tr>
+                <tr>
+                    <td>-t</td>
+                    <td>Displays or lists the files and directories contained within an archive.</td>
+                </tr>
+                <tr>
+                    <td>-u</td>
+                    <td>Archives and adds new files or directories to an existing archive.</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        </p>
+        <center><h3>Example</h3>
+            <img src="tar example.png"
+            </center>
+
+      </section>
+      <section id="gzip">
+        <h2>gzip Command</h2>
+         <p>
+            gzip command compresses files. Each single file is compressed into a single file. The compressed file consists of a GNU zip header and deflated data. If given a file as an argument, gzip compresses the file, adds a “.gz” suffix, and deletes the original file. With no arguments, gzip compresses the standard input and writes the compressed file to the standard output.
+             <center><h3>gzip Command Syntax</h3><br>
+            <img src = "gzip.png"> </center>
+         </p>
+
+         <table class="options-table">
+          <thead>
+              <tr>
+                  <th>Feature</th>
+                  <th>Gzip</th>
+                  <th>Zip</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Compression Algorithm</td>
+                  <td>Uses the DEFLATE algorithm.</td>
+                  <td>Uses various compression algorithms, including DEFLATE, LZ77, and others.</td>
+              </tr>
+              <tr>
+                  <td>File Format</td>
+                  <td>Typically appends “.gz” to compressed files.</td>
+                  <td>Uses “.zip” extension for compressed archives.</td>
+              </tr>
+              <tr>
+                  <td>Archiving Approach</td>
+                  <td>Common practice is to use tarball (.tar) before compression.</td>
+                  <td>Compresses individual files and then adds them to the archive.</td>
+              </tr>
+              <tr>
+                  <td>File Extraction</td>
+                  <td>Requires decompression of the entire file before extracting specific files.</td>
+                  <td>Allows direct extraction of individual files without full decompression.</td>
+              </tr>
+          </tbody>
+      </table>
+
+      <center><h3>Example</h3>
+        <img src="gzip example.png"
+        </center>
+      </section>
+      <section id="gunzip">
+        <h2>gunzip Command</h2>
+        <p>
+          The gunzip command is used to decompress files that have been compressed using the gzip compression utility. It restores the original content of the compressed files by removing the .gz extension. This command is commonly used in Unix-based systems to reduce file sizes for storage or transmission, and it can handle single files or multiple files simultaneously when used with wildcards. By default, gunzip deletes the compressed file after successful decompression, but this behavior can be modified with the -c option to keep the original file.</p>
+          <center><h3>gunzip Command Syntax</h3><br>
+            <img src="gunzip.png"></center>
+              
+
+              <table class="options-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-c, --stdout</td>
+                        <td>Keeps original files unchanged but writes the text from a compressed file to the standard output without uncompressing it.</td>
+                    </tr>
+                    <tr>
+                        <td>-f, --force</td>
+                        <td>Forces decompression even if the conditions are not ideal.</td>
+                    </tr>
+                    <tr>
+                        <td>-k, --keep</td>
+                        <td>Keeps both the compressed and the original uncompressed file after decompression.</td>
+                    </tr>
+                    <tr>
+                        <td>-l, --list</td>
+                        <td>Provides info about compressed or uncompressed file contents.</td>
+                    </tr>
+                    <tr>
+                        <td>-n, --no-name</td>
+                        <td>Does not save the original file name and timestamp when decompressing.</td>
+                    </tr>
+                    <tr>
+                        <td>-N, --name</td>
+                        <td>Saves the original file name and timestamp when decompressing.</td>
+                    </tr>
+                    <tr>
+                        <td>-q, --quiet</td>
+                        <td>Suppresses all warnings.</td>
+                    </tr>
+                    <tr>
+                        <td>-r, --recursive</td>
+                        <td>Unzips files not only in the current directory but also in its subdirectories.</td>
+                    </tr>
+                    <tr>
+                        <td>-S, --suffix=SUF</td>
+                        <td>Uses the suffix '.suf' instead of '.gz' when decompressing.</td>
+                    </tr>
+                    <tr>
+                        <td>--synchronous</td>
+                        <td>The data is written to the output file synchronously, where each operation must be completed before the next one begins. The process is slower but considered safer in case of a system crash or failure.</td>
+                    </tr>
+                    <tr>
+                        <td>-t, --test</td>
+                        <td>Performs a test by checking the decompressed file integrity.</td>
+                    </tr>
+                    <tr>
+                        <td>-v, --verbose</td>
+                        <td>Provides a verbose output to give a better understanding of what is happening.</td>
+                    </tr>
+                    <tr>
+                        <td>--help</td>
+                        <td>Displays the help message and exits.</td>
+                    </tr>
+                    <tr>
+                        <td>-V, --version</td>
+                        <td>Shows the information about the version of gunzip.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <center><h3>Example</h3>
+                <img src="gunzip example.png"
+                </center>
+      </section>
+      <section id="zip">
+        <h2>zip Command</h2>
+        Zip is used to compress files to reduce file size and is also used as a file package utility. Zip is available in many operating systems like Unix, Linux, windows, etc.If you have limited bandwidth between two servers and want to transfer the files faster, then zip the files and transfer them.
+            <br>
+        Compression ratios of 2:1 to 3:1 is common for text files. zip has one compression method (deflation) and can also store files without compression. zip automatically chooses the better of the two for each file to be compressed. The program is useful for packaging a set of files for distribution, archiving files, and for saving disk space by temporarily compressing unused files or directories.<br>
+        <center><h3>zip Command Syntax</h3><br>
+          <img src="zip.png"><br>
+          <h3>Creating Zip Syntax</h3><br>
+          <img src="creatingZip.png"></center>
+
+          <table class="options-table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Description</th>
+                    <th>Syntax</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>-d</td>
+                    <td>Remove files from the archive. This option allows you to remove specific files from a zip archive. After creating a zip file, you can selectively remove files using the -d option.</td>
+                    <td><code>zip -d [file_name.zip] [files_name]</code></td>
+                </tr>
+                <tr>
+                    <td>-u</td>
+                    <td>Update files in the archive. Enables you to update files in an existing zip archive. You can specify a list of files to update or add new files. Updates only if the modified version is newer.</td>
+                    <td><code>zip -u [file_name.zip] [files_name]</code></td>
+                </tr>
+                <tr>
+                    <td>-m</td>
+                    <td>Move files into the archive. Moves specified files into the zip archive and deletes the source files. Use cautiously as it permanently removes the input files.</td>
+                    <td><code>zip -m [file_name.zip] [files_name]</code></td>
+                </tr>
+                <tr>
+                    <td>-r</td>
+                    <td>Recursively zip a directory. Includes all files in the specified directory and its subdirectories in the resulting zip archive.</td>
+                    <td><code>zip -r [file_name.zip] [directory_name]</code></td>
+                </tr>
+                <tr>
+                    <td>-x</td>
+                    <td>Exclude files from the zip. Allows you to exclude specific files when zipping an entire directory.</td>
+                    <td><code>zip -r [file_name.zip] -x [directory_name]</code></td>
+                </tr>
+                <tr>
+                    <td>-v</td>
+                    <td>Verbose mode. Provides diagnostic information during compression, including a progress indicator and details about the zip file structure.</td>
+                    <td><code>zip -v [file_name.zip] [file_name]</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <center><h3>Example</h3>
+            <img src="zip example.png"
+            </center>
+  
+      </section>
+      <section id="chmod">
+        <h2>chmod Command</h2>
+        Linux chmod command is used to change the access permissions of files and directories. It stands for change mode. It can not change the permission of symbolic links. Even, it ignores the symbolic links come across recursive directory traversal.
+
+        In the Linux file system, each file is associated with a particular owner and have permission access for different users. The user classes may be:
+        <ul>
+        <li>owner</li>
+        <li>group member</li>
+        <li>Others (Everybody else)</li>
+      </ul><br>
+        The file permissions in Linux are the following three types:
+        <ul>
+       <li>read (r)</li> 
+        <li>write (w)</li>
+        <li>execute (x)</li>
+      </ul>
+        <center> <h3>chmod Syntax</h3><br>
+         <img src="chmod.png"><br></center>
+         <h3>Permission Options</h3><br>
+        <table class="options-table">
+          <thead>
+              <tr>
+                  <th>Option</th>
+                  <th>Description</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><code>-R</code></td>
+                  <td>Apply the permission change recursively to all the files and directories within the specified directory.</td>
+              </tr>
+              <tr>
+                  <td><code>-v</code></td>
+                  <td>Displays a message for each file processed, indicating the permission change made.</td>
+              </tr>
+              <tr>
+                  <td><code>-c</code></td>
+                  <td>Works the same as <code>-v</code>, but only displays messages for files whose permissions are changed.</td>
+              </tr>
+              <tr>
+                  <td><code>-f</code></td>
+                  <td>Avoids the display of error messages.</td>
+              </tr>
+              <tr>
+                  <td><code>-h</code></td>
+                  <td>Changes the permissions of symbolic links instead of the files they point to.</td>
+              </tr>
+          </tbody>
+      </table>
+     
+      <h3>References</h3>
+      <table  class="options-table">
+        <tr>
+            <th>Reference</th>
+            <th>Class</th>
+        </tr>
+        <tr>
+            <td>u</td>
+            <td>Owner</td>
+        </tr>
+        <tr>
+            <td>g</td>
+            <td>Group</td>
+        </tr>
+        <tr>
+            <td>o</td>
+            <td>Others</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>All (owner, group, others)</td>
+        </tr>
+    </table>
+    <center><h3>Example</h3>
+        <img src="chmod example 2.png"
+        </center>
+      </section>
+      <section id="chown">
+        <h2>chown Command</h2>
+        <p>The `chown` command, short for “change owner,” is a powerful tool that allows users to change the owner of files and directories. This command is particularly useful in scenarios where administrators need to grant or revoke access to specific resources.</p><br>
+        <ul>
+        <li>Root User: It is a superuser who has access to all the directories and files in our system and it can perform any operation. An important thing to note is that only the root user can perform changing of permissions or ownerships of the files that are not owned by them.</li>
+        <li>Regular User: These users have limited access to files and directories and can only modify the files that they own.</li><br>
+      </ul>
+        <center><h3>chown Syntax</h3>
+        <img src="chown.png"></center>
+       
+           
+    
+        <table class="options-table">
+          <tr>
+              <th>Option</th>
+              <th>Description</th>
+          </tr>
+          <tr>
+              <td>-f</td>
+              <td>Suppresses all error messages except for essential usage messages. If chown encounters an error (e.g., an inaccessible file), it does not print the error message, but it continues to process other files.</td>
+          </tr>
+          <tr>
+              <td>-h</td>
+              <td>Modifies the ownership of a symbolic link rather than the target file or directory the link points to. This is useful when you want to change the ownership of a link without affecting the destination.</td>
+          </tr>
+          <tr>
+              <td>--reference=RFILE</td>
+              <td>Uses the specified reference file's (RFILE) owner and group rather than specifying the owner and group values.</td>
+          </tr>
+          <tr>
+              <td>--from=OWNER:GROUP</td>
+              <td>Changes ownership only if the file currently has the specified owner and group. The option ensures that ownership is updated only when the existing ownership matches the given values. This is useful for selective ownership changes where multiple users or groups might have access.</td>
+          </tr>
+          <tr>
+              <td>-H</td>
+              <td>When used with -R (recursive), it changes ownership of directories referenced by symbolic links on the command line and applies the change to all files inside those directories. This flag does not affect symbolic links encountered during directory traversal.</td>
+          </tr>
+          <tr>
+              <td>-L</td>
+              <td>When used with -R, it follows symbolic links to directories during recursive traversal. It changes the ownership of the directories and all files beneath them by following symbolic links.</td>
+          </tr>
+          <tr>
+              <td>-P</td>
+              <td>When used with -R, it changes ownership of symbolic links without following them. This prevents chown from modifying files or directories pointed to by the symbolic links.</td>
+          </tr>
+          <tr>
+              <td>-R</td>
+              <td>Recursively changes ownership of all files and directories beneath a specified directory. It processes each file or directory it encounters but does not follow symbolic links unless combined with -h, -H, -L, or -P. This option is crucial for applying ownership changes to entire directory trees.</td>
+          </tr>
+      </table>
+      <center><h3>Example</h3>
+        <img src="chown example.png"
+        </center>
+        </section>
+      </section>
+      <section id="chgrp">
+        <h2>chgrp Command</h2>
+        <p>The `chgrp` command in Linux is used to change the group ownership of a file or directory. All files in Linux belong to an owner and a group. You can set the owner by using “chown” command, and the group by the “chgrp” command.</p><br>
+        <p>First we need to have administrator permission to add or delete groups. We can login as root for this purpose or use sudo. In order to add a new group, we can use:</p><br>
+        <center><h3>chgrp Syntax</h3>
+        <img src="chgrp.png"></center>
+
+       
+    <table class="options-table">
+        <tr>
+            <th>Option</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>-f, --silent, --quiet</td>
+            <td>Executes the command without displaying any error messages.</td>
+        </tr>
+        <tr>
+            <td>-v, --verbose</td>
+            <td>Outputs the action details for every file processed.</td>
+        </tr>
+        <tr>
+            <td>-c, --changes</td>
+            <td>Similar to --verbose, but reports only when making a change.</td>
+        </tr>
+        <tr>
+            <td>--dereference</td>
+            <td>Affects the referent of each symbolic link, rather than the symbolic link itself.</td>
+        </tr>
+        <tr>
+            <td>-h, --no-dereference</td>
+            <td>Affects symbolic links instead of any referenced files. Use this option only on systems that can change the ownership of a symlink.</td>
+        </tr>
+        <tr>
+            <td>--no-preserve-root</td>
+            <td>Does not treat '/' specially (default setting).</td>
+        </tr>
+        <tr>
+            <td>--preserve-root</td>
+            <td>Fails to operate recursively on '/'.</td>
+        </tr>
+        <tr>
+            <td>--reference=RFILE</td>
+            <td>Changes a file's group name to the group name of the referenced file.</td>
+        </tr>
+        <tr>
+            <td>-R, --recursive</td>
+            <td>Operates on files and directories recursively.</td>
+        </tr>
+        <tr>
+            <td>-H</td>
+            <td>If a command line argument is a symbolic link to a directory, traverses it. Used in combination with the -R option.</td>
+        </tr>
+        <tr>
+            <td>-L</td>
+            <td>In a recursive traversal, traverses every symbolic link to a directory that is encountered. Used in combination with the -R option.</td>
+        </tr>
+        <tr>
+            <td>-P</td>
+            <td>Does not traverse any symbolic links. This is the default if -H, -L, or -P aren't specified. Used in combination with the -R option.</td>
+        </tr>
+        <tr>
+            <td>--help</td>
+            <td>Displays the help file and exits.</td>
+        </tr>
+        <tr>
+            <td>--version</td>
+            <td>Outputs version information and exits.</td>
+        </tr>
+    </table>
+    <center><h3>Example</h3>
+        <img src="chgrp example.png"
+        </center>
+        </section>
+
+      </section>
+      <section id="ps">
+        <h2>ps Command</h2>
+        <p>
+          The `ps` command, which stands for “process status,” is like a computer tool that helps you see what’s happening inside your Linux computer. Imagine your computer is doing several things simultaneously, like running different programs or apps. These are the processes and the `ps` command lets you take a quick look at them. When you use it without any special instructions, it shows you the processes that are connected to the window or screen you are currently using. But here’s where it gets interesting: you can make the ps command show you exactly what you want to know by giving it special instructions, called options. These options let you customize the information you see, like finding out which programs are using the most computer power or checking what a specific user is doing. So, while it can give you a basic overview, the ps command’s real strength is in letting you choose exactly what details you want to see about the processes on your computer.
+
+
+        </p>
+        <br>
+        <center><h3>ps Syntax</h3>
+      <img src="ps.png"><br></center> 
+          
+        <table class="options-table">
+          <tr>
+              <th>Option</th>
+              <th>Description</th>
+          </tr>
+          <tr>
+              <td>a</td>
+              <td>List all running processes for all users.</td>
+          </tr>
+          <tr>
+              <td>-A, -e</td>
+              <td>Lists all processes on the entire system, offering a complete overview of running tasks and programs.</td>
+          </tr>
+          <tr>
+              <td>-a</td>
+              <td>List all processes except session leaders (instances where the process ID is the same as the session ID) and processes not associated with a terminal.</td>
+          </tr>
+          <tr>
+              <td>-d</td>
+              <td>Lists all processes except session leaders, providing a filtered view of processes running on the system.</td>
+          </tr>
+          <tr>
+              <td>--deselect, -N</td>
+              <td>Lists all processes except those that meet specific user-defined conditions.</td>
+          </tr>
+          <tr>
+              <td>f</td>
+              <td>Displays the hierarchy of processes in a visual ASCII art format, illustrating parent-child relationships.</td>
+          </tr>
+          <tr>
+              <td>-j</td>
+              <td>Presents the output in the jobs format, providing detailed information such as process ID, session ID, and command.</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>Lists all processes associated with the current terminal, aiding in focusing on tasks related to a specific terminal.</td>
+          </tr>
+          <tr>
+              <td>r</td>
+              <td>Only lists running processes, useful for monitoring system performance.</td>
+          </tr>
+          <tr>
+              <td>u</td>
+              <td>Expands the output to include additional information like CPU and memory usage.</td>
+          </tr>
+          <tr>
+              <td>-u</td>
+              <td>Specifies a username, listing processes associated with that user.</td>
+          </tr>
+          <tr>
+              <td>x</td>
+              <td>Includes processes without a TTY, showing background processes not tied to a specific terminal session.</td>
+          </tr>
+      </table>
+      <center><h3>Example</h3>
+        <img src="ps example.png"
+        </center>
+        </section>
+    </div>
+    <footer id="footer">
+        <p>&copy; 2025 tuxTech. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

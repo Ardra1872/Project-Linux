@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TuxTech</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .about-container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent black background for effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            background: #111;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+        
+    .social-links a {
+        margin: 0 15px; /* Adds 15px margin on the left and right of each icon */
+    }
+
+    .about-container {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: enlargeBox 2s forwards ease-in-out;
+}
+
+@keyframes enlargeBox {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About TuxTech</h1>
+        <p>
+            Welcome to TuxTech!  
+            TuxTech is your ultimate guide to mastering Linux commands, designed to make the powerful world of Linux accessible to everyone.  
+            From file operations to compression techniques, we aim to provide clear, concise, and beginner-friendly tutorials.
+        </p>
+        <p>
+            Built with simplicity and functionality in mind.  
+            Dive in and explore the endless possibilities with Linux, one command at a time!
+        </p>
+    </div>
+    <footer>
+        <p>&copy; 2025 TuxTech. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/Ardra1872" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="40"alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/ardra-s-nair-175840278/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/61/61109.png"width="40" alt="LinkedIn">
+            </a>
+            <a href="mailto:ardrasnair2028@mca.ajce.in">
+                <img src="mailicon.png" width="40"alt="Mail">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
